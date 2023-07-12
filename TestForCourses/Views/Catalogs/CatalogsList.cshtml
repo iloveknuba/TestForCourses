@@ -1,0 +1,25 @@
+﻿@using TestForCourses.ViewModels
+@model CatalogsViewModel
+
+    <a href="#" class="myLink">@Model.ParentCatalogName</a>
+    <h1>@Model.CurrentCatalogsName</h1>
+    @{
+        foreach( var category in @Model.ChildCatalogs)
+        {
+            <div>
+                <a href="#" class="myLink">@category.Name</a>
+           
+            </div>
+        }
+    }
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.myLink').each(function () {
+            var text = $(this).text();
+            $(this).attr('href', '/Catalogs/CatalogsList/' + text);
+        });
+    });
+</script>
+      
+
